@@ -255,7 +255,7 @@ class OpenSCAD(inkex.Effect):
 
         self.OptionParser.add_option(
             '--fname', dest='fname', type='string', default='~/inkscape.scad',
-            action='store', help='Curve smoothing (less for more)')
+            action='store', help='Output file')
 
         self.OptionParser.add_option(
             '--autoheight', dest='autoheight', type='string', default='false',
@@ -797,7 +797,7 @@ class OpenSCAD(inkex.Effect):
                     '0 1 0 %f,%f ' % (x2, cy) + \
                     'A %f,%f ' % (rx, ry) + \
                     '0 1 0 %f,%f' % (x1, cy)
-                self.mapPathVertices(d, node, matNew)
+                self.getPathVertices(d, node, matNew)
 
             elif node.tag == inkex.addNS('pattern', 'svg') or \
                     node.tag == 'pattern':
@@ -1004,4 +1004,4 @@ fudge = 0.1;
 
 if __name__ == '__main__':
     e = OpenSCAD()
-    e.effect()
+    e.affect()
